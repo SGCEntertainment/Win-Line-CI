@@ -64,7 +64,7 @@ jobs:
         name: Sign Bundle
         id: sign_app
         with:
-          releaseDirectory: app/build/outputs/apk/release
+          releaseDirectory: app/build/outputs/apk/debug
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -72,5 +72,5 @@ jobs:
       - name: Upload Bundle
         uses: actions/upload-artifact@v2
         with:
-          name: release.apk
+          name: app-debug.apk
           path: ${{steps.sign_app.outputs.signedReleaseFile}}
