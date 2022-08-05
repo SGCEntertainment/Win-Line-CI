@@ -9,38 +9,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
 
       - name: Set Up JDK
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-
-      - name: Change wrapper permissions
-        run: chmod +x ./gradlew
-
-      - name: Run Tests
-        run: ./gradlew test
-
-      - name: Build Project
-        run: ./gradlew build
-
-      - name: Build Release AAB      // 1
-        run: ./gradlew bundleRelease
-
-      - name: Sign AAB               // 2
-        uses: r0adkll/sign-android-release@v1
+          
+      - name: Set up our JDK environment
+        uses: actions/setup-java@v1.4.3
         with:
-          releaseDirectory: app/build/outputs/bundle/release
-          signingKeyBase64: ${{ secrets.SIGN_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.STORE_KEY_PASSWORD }}
+          java-version: 1.8
+          
+      - name: Build all artifacts
+        id: buildAllApks
+        uses: eskatos/gradle-command-action@v1.3.3
+        with:
+          gradle-version: current
+          wrapper-cache-enabled: true
+          dependencies-cache-enabled: true
+          configuration-cache-enabled: true
+          arguments: assembleRelease
+          
+      - name: Run Kotlin Linter
+        run: ./gradlew ktlintStagingDebugCheck
+
+      - name: Run Unit Tests
+        run: ./gradlew testStagingDebugUnitTest
+
+      - name: Sign artifact
+        id: signArtifact
+        uses: r0adkll/sign-android-release@v1.0.1
+        with:
+          releaseDirectory: app/build/outputs/apk/ourbuildtype/release
+          alias: ${{ secrets.KEYALIAS }}
+          signingKeyBase64: ${{ secrets.KEYSTORE }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - name: Deploy to Play Store   // 3
-        uses: r0adkll/upload-google-play@v1
+      - name: Upload our APK
+        uses: actions/upload-artifact@v2.2.0
         with:
-          serviceAccountJsonPlainText: ${{secrets.SERVICE_ACCOUNT}}
-          packageName: com.tomerpacific.laundry
-          releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: production
+          name: Release artifact
+          path: app/build/outputs/apk/ourbuildtype/release/app-artifact-*.apk
