@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "650628583149",
+    "project_id": "heclaprod",
+    "storage_bucket": "heclaprod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650628583149:android:96873d109b2975ba6846e4",
+        "android_client_info": {
+          "package_name": "com.wlines.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650628583149-64d9dv7ft6i6qhnu2pnt5u1pbpoosha7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOrwiXJvtI_0cemhKZ_7w8OyxSXF3U-hE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650628583149-64d9dv7ft6i6qhnu2pnt5u1pbpoosha7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

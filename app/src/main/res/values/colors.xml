@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#333333</color>
+    <color name="colorPrimaryDark">#1a1a1a</color>
+    <color name="colorAccent">#d05ce3</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="Smoky_white">#f5f5f5</color>
+    <color name="Gray_white">#dbdbdb</color>
+
+
+    <color name="Smoky_black">#1a1a1a</color>
+    <color name="Gray">#333333</color>
+
+<!--                        -->
+<!--    <color name="colorPrimary">#263238</color>-->
+<!--    <color name="colorPrimaryDark">#000a12</color>-->
+<!--    <color name="colorAccent">#01579b</color>-->
+    <color name="colorPrimaryLite">#4f5b62</color>
+
+    <color name="colorSecondaryDark">#002f6c</color>
+    <color name="colorSecondaryLite">#1a4876</color>
+    <color name="colorTextonPrimary">#ffffff</color>
+    <color name="colorTextonSecondary">#ffffff</color>
+
+    <color name="colorCream">#1a1a1a</color>
+    <color name="colorBotton">#e7692b</color>
+
+
+</resources>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorCream"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_3"
+        tools:ignore="MissingConstraints">
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/textViewNick"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@drawable/back_2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="80dp">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/textViewLvl"
+        android:background="@android:color/darker_gray"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_marginHorizontal="30dp"
+        android:text="Enter level:"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNick" />
+
+
+    <RadioGroup
+        android:id="@+id/rgLvl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLvl">
+
+<!--        easy белый-->
+<!--        medium черный-->
+<!--        hard оранжевый-->
+
+        <RadioButton
+            android:id="@+id/rbEasy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@color/Smoky_white"
+            android:text="easy"
+            android:textAlignment="viewStart" />
+
+        <RadioButton
+            android:id="@+id/rbMedium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/Smoky_white"
+            android:layout_marginHorizontal="30dp"
+            android:background="@color/Smoky_black"
+            android:text="medium"
+            android:textAlignment="viewStart" />
+
+        <RadioButton
+            android:id="@+id/rbHard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:background="@color/colorBotton"
+            android:text="hard"
+            android:textAlignment="viewStart" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/bStart"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/roundedbutton"
+        android:layout_marginHorizontal="30dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLvl" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
